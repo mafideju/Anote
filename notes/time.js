@@ -1,7 +1,7 @@
 const log = () => {
   const date = new Date().toLocaleDateString();
   const hour = new Date().toLocaleTimeString();
-  return `Acessado dia ${date} ás ${hour} horas.`;
+  return `Accessed at ${date}, ${hour} hours.`;
 }
 
 module.exports = log;

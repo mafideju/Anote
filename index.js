@@ -9,10 +9,11 @@ fs.appendFileSync('notes.txt', getNotes('Agora estamos elevando os níveis do te
 fs.appendFileSync('notes.txt', log());
 
 console.log(
-  chalk.bgMagentaBright('>>>>>>>') +
-  chalk.bgGreen('           Sucesso          ') +
-  chalk.bgMagentaBright('!!!!!!!')
+  chalk.rgb(0, 0, 0).bgYellowBright('>>>>>>>') +
+  chalk.rgb(0, 0, 0).bgGreen('           Success          ') +
+  chalk.rgb(0, 0, 0).bgYellowBright('!!!!!!!')
 )
 // console.log(chalk.blue.bgWhite(log()));
-console.log(chalk.rgb(123, 145, 167).underline("Marcio Mafideju Rodrigues"));
-console.log(chalk.white.bgRed.bold(log()));
+console.log(chalk.rgb(250, 250, 250).underline("Marcio Mafideju Rodrigues"));
+console.log(chalk.rgb(250, 250, 250).underline("                      mafideju@outlook.com"));
+console.log(chalk.rgb(0, 0, 0).bgGreen(log()));
