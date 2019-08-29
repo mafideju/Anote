@@ -1,9 +1,7 @@
 const fs = require('fs');
 const chalk = require('chalk');
 
-const getNotes = (nota) => {
-  return `Sua nota do dia é: ${nota}`
-}
+const getNotes = nota => `Sua nota do dia é: ${nota}`;
 
 const addNote = (title, body) => {
   const notes = loadNotes();
@@ -22,7 +20,7 @@ const addNote = (title, body) => {
   }
 }
 
-const removeNote = (title) => {
+const removeNote = title => {
   const notes = loadNotes();
   const match = notes.filter(note => {
     return note.title !== title;
@@ -35,14 +33,27 @@ const removeNote = (title) => {
   }
 }
 
-const saveNote = (note) => {
+const listNotes = () => {
+  const notes = loadNotes();
+  return notes.map(note => {
+    console.log(`Produto: ${note.title} - Conteúdo: ${note.body}`)
+  });
+}
+
+const readNote = title => {
+  const notes = loadNotes();
+  const note = notes.find(note => note.title === title.title);
+  console.log(`O título da sua nota é ${note.title}. Ela contém ${note.body}`)
+}
+
+const saveNote = note => {
   const data = JSON.stringify(note);
-  fs.writeFileSync('json-data.json', data);
+  fs.writeFileSync('./data/json-data.json', data);
 }
 
 const loadNotes = () => {
   try {
-    const buffer = fs.readFileSync('json-data.json');
+    const buffer = fs.readFileSync('./data/json-data.json');
     const data = buffer.toString();
     return JSON.parse(data);
   } catch (e) {
@@ -54,4 +65,6 @@ module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
+  listNotes: listNotes,
+  readNote: readNote,
 };

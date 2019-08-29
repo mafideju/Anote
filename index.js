@@ -4,7 +4,7 @@ const yargs = require('yargs');
 const notes = require('./notes/notes');
 const log = require('./notes/time');
 
-fs.appendFileSync('notes.txt', log());
+fs.appendFileSync('./data/notes.txt', log());
 
 // console.log(
 //   chalk.rgb(0, 0, 0).bgYellowBright('>>>>>>>') +
@@ -30,8 +30,8 @@ yargs.command({
       type: 'string'
     }
   },
-  handler: (argv) => {
-    notes.addNote(argv.title, argv.body);
+  handler(argv) {
+    notes.addNote(argv.title, argv.body)
   }
 })
 
@@ -45,23 +45,31 @@ yargs.command({
       type: 'string'
     }
   },
-  handler: (argv) => {
-    notes.removeNote(argv.title);
+  handler(argv) {
+    notes.removeNote(argv.title)
   }
 });
 
 yargs.command({
   command: 'list',
   describe: 'Lista todas as notas',
-  handler: function () {
-    console.log(chalk.blue('Lista todas as notas'))
+  handler(argv) {
+    notes.listNotes(argv.title)
   }
 })
+
 yargs.command({
   command: 'read',
   describe: 'Leia uma nota',
-  handler: function () {
-    console.log(chalk.yellow('Leia uma nota'))
+  builder: {
+    title: {
+      describe: 'Note Title',
+      demandOption: true,
+      type: 'string'
+    }
+  },
+  handler(title) {
+    notes.readNote(title);
   }
 })
 
