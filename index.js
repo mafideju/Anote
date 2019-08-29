@@ -6,12 +6,6 @@ const log = require('./notes/time');
 
 fs.appendFileSync('./data/notes.txt', log());
 
-// console.log(
-//   chalk.rgb(0, 0, 0).bgYellowBright('>>>>>>>') +
-//   chalk.rgb(0, 0, 0).bgGreen('           Success          ') +
-//   chalk.rgb(0, 0, 0).bgYellowBright('!!!!!!!')
-// );
-
 // console.log(chalk.rgb(0, 0, 0).bgGreen(log()));
 yargs.version('0.0.1');
 
@@ -32,6 +26,11 @@ yargs.command({
   },
   handler(argv) {
     notes.addNote(argv.title, argv.body)
+    // console.log(
+    //   chalk.rgb(0, 0, 0).bgYellowBright('>>>>>>>') +
+    //   chalk.rgb(0, 0, 0).bgGreen('           Success          ') +
+    //   chalk.rgb(0, 0, 0).bgYellowBright('!!!!!!!')
+    // );
   }
 })
 

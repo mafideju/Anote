@@ -4,6 +4,7 @@ const chalk = require('chalk');
 const getNotes = nota => `Sua nota do dia é: ${nota}`;
 
 const addNote = (title, body) => {
+  // debugger;
   const notes = loadNotes();
   const dups = notes.filter(note => {
     return note.title === title;
