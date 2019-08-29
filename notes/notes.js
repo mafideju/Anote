@@ -22,11 +22,17 @@ const addNote = (title, body) => {
   }
 }
 
-const removeNote = (note) => {
+const removeNote = (title) => {
   const notes = loadNotes();
   const match = notes.filter(note => {
-    return notes.title !== note.title
+    return note.title !== title;
   });
+  if (notes.length === match.length) {
+    console.log(chalk.red.bgYellow('Nenhuma Nota Removida'))
+  } else {
+    console.log(chalk.red('Nota Removida Com Sucesso'))
+    saveNote(match);
+  }
 }
 
 const saveNote = (note) => {
