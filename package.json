@@ -1,0 +1,27 @@
+{
+  "name": "Anote",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mafideju/Anote.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mafideju/Anote/issues"
+  },
+  "homepage": "https://github.com/mafideju/Anote#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  },
+  "dependencies": {
+    "chalk": "^2.4.2",
+    "validator": "^11.1.0"
+  }
+}
